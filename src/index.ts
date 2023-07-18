@@ -55,3 +55,5 @@ export const openExplorer = async (path: string) => {
     });
   });
 };
+
+export default openExplorer;
