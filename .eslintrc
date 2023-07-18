@@ -1,0 +1,36 @@
+{
+  "root": true,
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint", "prettier", "simple-import-sort"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
+    "prettier"
+  ],
+  "env": {
+    "node": true
+  },
+  "rules": {
+    "@typescript-eslint/no-var-requires": "off",
+    "no-trailing-spaces": ["error"],
+    "no-console": ["warn", { "allow": ["warn", "error"] }],
+    "semi": ["error", "always"],
+    "comma-dangle": ["error", "always-multiline"],
+    "brace-style": ["error"],
+    "comma-spacing": ["error"],
+    "array-bracket-spacing": ["error"],
+    "keyword-spacing": ["error"],
+    "key-spacing": ["error"],
+    "eol-last": ["error"],
+    "quotes": ["error", "single", "avoid-escape"],
+    "switch-colon-spacing": ["error", { "after": true, "before": false }],
+    "object-curly-spacing": ["error", "always"],
+    "space-infix-ops": ["error", { "int32Hint": false }],
+    "space-before-blocks": ["warn"],
+    "arrow-parens": ["warn"],
+    "no-param-reassign": "error",
+    "simple-import-sort/imports": "error",
+    "simple-import-sort/exports": "error"
+  }
+}
