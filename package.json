@@ -11,7 +11,8 @@
     "build": "tsup",
     "lint": "pnpm run lint:ts && pnpm run format",
     "lint:ts": "eslint ./src --ext .ts --config .eslintrc --fix",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "demo": "ts-node demo/demo.ts"
   },
   "devDependencies": {
     "@swc/core": "^1.3.70",
