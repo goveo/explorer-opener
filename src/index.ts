@@ -2,26 +2,24 @@ import child_process from 'child_process';
 import fs from 'fs';
 import os from 'os';
 
-const supportedPlatforms = ['win', 'linux', 'macos'] as const;
+const supportedPlatforms = [
+  'win32',
+  'linux',
+  'darwin',
+] satisfies NodeJS.Platform[];
 type SupportedPlatform = (typeof supportedPlatforms)[number];
 
 const defaultPathDict: Record<SupportedPlatform, string> = {
-  win: '=',
+  win32: '=',
   linux: '/',
-  macos: '/',
+  darwin: '/',
 };
 
 const explorerCommandDict: Record<SupportedPlatform, string> = {
-  win: 'explorer',
+  win32: 'explorer',
   linux: 'xdg-open',
-  macos: 'open',
+  darwin: 'open',
 };
-
-const currentPlatform = os
-  .platform()
-  .toLowerCase()
-  .replace(/[0-9]/g, '')
-  .replace('darwin', 'macos');
 
 const isSupportedPlatform = (
   platform: string,
@@ -31,6 +29,8 @@ const isSupportedPlatform = (
 
 export const openExplorer = async (path: string) => {
   return new Promise((resolve, reject) => {
+    const currentPlatform = os.platform();
+
     if (!isSupportedPlatform(currentPlatform)) {
       return reject(`Can not detect ${currentPlatform} os`);
     }
