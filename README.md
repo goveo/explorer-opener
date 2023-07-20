@@ -21,8 +21,33 @@ openExplorer('C:\\Windows\\System32')
   });
 ```
 
+⚠️ Rejected promise will be returned if provided path does not exist:
+
+```ts
+openExplorer('/test/folder').catch((error) => {
+  // error -> `File or directory "/test/folder" does not exist`
+});
+```
+
+## Default path values
+
+Default values will be used if `path` is not specified:
+
+- Windows: `"="`
+- Linux: `"/"`
+- MacOS: `"/"`
+
 ## Supported platforms
 
-- Windows - `win32`
-- Linux - `linux`
-- MacOS - `darwin`
+- Windows (`"win32"`)
+- Linux (`"linux"`)
+- MacOS (`"darwin"`)
+
+⚠️ Rejected promise will be returned if it's called from not supported platform:
+
+```ts
+// os: android
+openExplorer().catch((error) => {
+  // error -> Can not detect "android" os
+});
+```
