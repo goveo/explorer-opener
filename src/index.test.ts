@@ -79,18 +79,6 @@ describe('openExplorer', () => {
     });
   });
 
-  describe('incorrect path', () => {
-    it('should reject if path does not exist', () => {
-      const path = '/test';
-      mockPlatform('win32');
-      mockExistsSync(false);
-
-      openExplorer(path).catch((error: Error) => {
-        expect(error).toBe(`File or directory ${path} does not exist`);
-      });
-    });
-  });
-
   describe('not-supported platform', () => {
     it('should reject if path does not exist', () => {
       const platform = 'android';
@@ -131,6 +119,42 @@ describe('openExplorer', () => {
       process.emit('exit');
 
       expect(resultPromise).resolves;
+    });
+  });
+
+  describe('path argument', () => {
+    it('should reject if path does not exist', () => {
+      mockPlatform('win32');
+      mockExistsSync(false);
+
+      openExplorer('/test').catch((error: Error) => {
+        expect(error).toBe('File or directory /test does not exist');
+      });
+
+      openExplorer('').catch((error: Error) => {
+        expect(error).toBe('File or directory  does not exist');
+      });
+
+      openExplorer(' ').catch((error: Error) => {
+        expect(error).toBe('File or directory   does not exist');
+      });
+    });
+
+    it('should pass use default value if path is not provided', () => {
+      mockExistsSync(true);
+      const { spy } = mockSpawn();
+
+      mockPlatform('win32');
+      openExplorer();
+      expect(spy).toHaveBeenLastCalledWith('explorer', ['=']);
+
+      mockPlatform('linux');
+      openExplorer();
+      expect(spy).toHaveBeenLastCalledWith('xdg-open', ['/']);
+
+      mockPlatform('darwin');
+      openExplorer();
+      expect(spy).toHaveBeenLastCalledWith('open', ['/']);
     });
   });
 });

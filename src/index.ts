@@ -27,7 +27,7 @@ const isSupportedPlatform = (
   return supportedPlatforms.includes(platform as SupportedPlatform);
 };
 
-export const openExplorer = async (path: string) => {
+export const openExplorer = async (path?: string) => {
   return new Promise((resolve, reject) => {
     const currentPlatform = os.platform();
 
@@ -35,7 +35,7 @@ export const openExplorer = async (path: string) => {
       return reject(`Can not detect ${currentPlatform} os`);
     }
 
-    if (!fs.existsSync(path)) {
+    if (path !== undefined && !fs.existsSync(path)) {
       return reject(`File or directory ${path} does not exist`);
     }
 
