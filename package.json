@@ -1,12 +1,35 @@
 {
   "name": "open-explorer",
   "version": "1.0.0",
-  "description": "Open file explorer with Node.js",
-  "keywords": [],
+  "description": "📁 Open file explorer with Node.js",
+  "keywords": [
+    "open",
+    "file",
+    "explorer",
+    "finder",
+    "nautilus",
+    "file-explorer"
+  ],
   "private": false,
   "author": "Yurii Brusentsov <yuriybrusentsov@gmail.com>",
   "license": "MIT",
-  "main": "index.js",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/types/index.d.mts",
+        "default": "./dist/index.mjs"
+      },
+      "require": {
+        "types": "./dist/types/index.d.ts",
+        "default": "./dist/index.js"
+      }
+    }
+  },
+  "types": "./dist/types/index.d.ts",
+  "main": "./dist/index.js",
   "scripts": {
     "build": "tsup",
     "lint": "pnpm run lint:ts && pnpm run format",
@@ -40,5 +63,13 @@
     "tsup": "^7.1.0",
     "typescript": "^5.1.6",
     "vitest": "^0.33.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/goveo/open-explorer.git"
+  },
+  "bugs": {
+    "url": "https://github.com/goveo/open-explorer/issues"
+  },
+  "homepage": "https://github.com/goveo/open-explorer#readme"
 }
