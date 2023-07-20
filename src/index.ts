@@ -32,11 +32,11 @@ export const openExplorer = async (path?: string) => {
     const currentPlatform = os.platform();
 
     if (!isSupportedPlatform(currentPlatform)) {
-      return reject(`Can not detect ${currentPlatform} os`);
+      return reject(`Can not detect "${currentPlatform}" os`);
     }
 
     if (path !== undefined && !fs.existsSync(path)) {
-      return reject(`File or directory ${path} does not exist`);
+      return reject(`File or directory "${path}" does not exist`);
     }
 
     const pathToOpen = path || defaultPathDict[currentPlatform];

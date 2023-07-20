@@ -86,7 +86,7 @@ describe('openExplorer', () => {
       mockPlatform(platform);
 
       openExplorer('/test').catch((error: Error) => {
-        expect(error).toBe(`Can not detect ${platform} os`);
+        expect(error).toBe(`Can not detect "${platform}" os`);
       });
     });
   });
@@ -128,15 +128,15 @@ describe('openExplorer', () => {
       mockExistsSync(false);
 
       openExplorer('/test').catch((error: Error) => {
-        expect(error).toBe('File or directory /test does not exist');
+        expect(error).toBe('File or directory "/test" does not exist');
       });
 
       openExplorer('').catch((error: Error) => {
-        expect(error).toBe('File or directory  does not exist');
+        expect(error).toBe('File or directory "" does not exist');
       });
 
       openExplorer(' ').catch((error: Error) => {
-        expect(error).toBe('File or directory   does not exist');
+        expect(error).toBe('File or directory " " does not exist');
       });
     });
 
