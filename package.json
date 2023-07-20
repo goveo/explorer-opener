@@ -71,5 +71,8 @@
   "bugs": {
     "url": "https://github.com/goveo/open-explorer/issues"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "homepage": "https://github.com/goveo/open-explorer#readme"
 }
