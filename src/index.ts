@@ -32,7 +32,7 @@ export const openExplorer = async (path?: string) => {
     const currentPlatform = os.platform();
 
     if (!isSupportedPlatform(currentPlatform)) {
-      return reject(`Can not detect "${currentPlatform}" os`);
+      return reject(`Can not detect "${currentPlatform}" platform`);
     }
 
     if (path !== undefined && !fs.existsSync(path)) {

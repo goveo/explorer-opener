@@ -25,7 +25,7 @@ openExplorer('C:\\Windows\\System32')
 
 ```ts
 openExplorer('/test/folder').catch((error) => {
-  // error -> `File or directory "/test/folder" does not exist`
+  // error: `File or directory "/test/folder" does not exist`
 });
 ```
 
@@ -48,6 +48,6 @@ Default values will be used if `path` is not specified:
 ```ts
 // os: android
 openExplorer().catch((error) => {
-  // error -> Can not detect "android" os
+  // error: `Can not detect "android" platform`
 });
 ```

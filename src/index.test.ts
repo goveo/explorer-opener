@@ -86,7 +86,7 @@ describe('openExplorer', () => {
       mockPlatform(platform);
 
       openExplorer('/test').catch((error: Error) => {
-        expect(error).toBe(`Can not detect "${platform}" os`);
+        expect(error).toBe(`Can not detect "${platform}" platform`);
       });
     });
   });
