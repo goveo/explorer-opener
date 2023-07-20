@@ -1,16 +1,16 @@
-# open-explorer
+# explorer-opener
 
 📁 Open file explorer with Node.js
 
-![npm-version](https://img.shields.io/npm/v/open-explorer)
-![build-status-badge](https://img.shields.io/github/actions/workflow/status/goveo/open-explorer/release.yml?branch=master)
-![install-size-badge](https://badgen.net/packagephobia/install/open-explorer)
-[![codecov](https://codecov.io/gh/goveo/open-explorer/branch/master/graph/badge.svg)](https://codecov.io/gh/goveo/open-explorer)
+![npm-version](https://img.shields.io/npm/v/explorer-opener)
+![build-status-badge](https://img.shields.io/github/actions/workflow/status/goveo/explorer-opener/release.yml?branch=master)
+![install-size-badge](https://badgen.net/packagephobia/install/explorer-opener)
+[![codecov](https://codecov.io/gh/goveo/explorer-opener/branch/master/graph/badge.svg)](https://codecov.io/gh/goveo/explorer-opener)
 
 ## Basic Usage
 
 ```ts
-import { openExplorer } from 'open-explorer';
+import { openExplorer } from 'explorer-opener';
 
 openExplorer('C:\\Windows\\System32')
   .then(() => {

@@ -1,5 +1,5 @@
 {
-  "name": "open-explorer",
+  "name": "explorer-opener",
   "version": "1.0.0",
   "description": "📁 Open file explorer with Node.js",
   "keywords": [
@@ -66,13 +66,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/goveo/open-explorer.git"
+    "url": "https://github.com/goveo/explorer-opener.git"
   },
   "bugs": {
-    "url": "https://github.com/goveo/open-explorer/issues"
+    "url": "https://github.com/goveo/explorer-opener/issues"
   },
   "publishConfig": {
     "access": "public"
   },
-  "homepage": "https://github.com/goveo/open-explorer#readme"
+  "homepage": "https://github.com/goveo/explorer-opener#readme"
 }
